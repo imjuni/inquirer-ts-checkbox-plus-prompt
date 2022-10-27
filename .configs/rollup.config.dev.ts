@@ -6,12 +6,15 @@ const pkg = readPackage.sync();
 
 export default [
   {
-    input: 'lib/cli.ts',
+    input: 'lib/index.ts',
     output: [
       {
         format: 'cjs',
-        file: 'dist/cli.js',
-        banner: '#!/usr/bin/env node',
+        file: 'dist/cjs/index.js',
+      },
+      {
+        format: 'esm',
+        file: 'dist/esm/index.js',
       },
     ],
     plugins: [

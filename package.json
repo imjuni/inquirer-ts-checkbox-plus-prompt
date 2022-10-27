@@ -1,6 +1,6 @@
 {
   "name": "inquirer-ts-checkbox-plus-prompt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Checkbox with autocomplete and other additions for Inquirer",
   "repository": {
     "type": "git",
@@ -14,6 +14,7 @@
     "clean": "just --config ./.configs/just.config.ts clean",
     "build": "just --config ./.configs/just.config.ts build",
     "rollup:prod": "just --config ./.configs/just.config.ts rollup:prod",
+    "dd": "deps-diff md -d prod -d dev --title-list-type '*' --deps-list-type '*' --content-list-type '*'",
     "prepublishOnly": "node prepublish.js",
     "pub": "just --config ./.configs/just.config.ts pub",
     "unpub": "just --config ./.configs/just.config.ts unpub",
@@ -37,17 +38,16 @@
     "tty",
     "menu"
   ],
-  "main": "./dist/cjs/index.cjs",
-  "module": "./dist/esm/index.mjs",
-  "typings": "./dist/esm/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": [
       {
-        "import": "./dist/esm/index.mjs",
-        "require": "./dist/cjs/index.cjs"
-      },
-      "./dist/cjs/index.js"
+        "import": "./dist/esm/index.js",
+        "require": "./dist/cjs/index.js"
+      }
     ]
   },
   "files": [
@@ -58,10 +58,8 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "cli-cursor": "^3.1.0",
-    "fast-safe-stringify": "^2.1.1",
     "figures": "^3.2.0",
     "inquirer": "^8.2.5",
-    "lodash": "^4.17.21",
     "rxjs": "^7.5.7"
   },
   "devDependencies": {

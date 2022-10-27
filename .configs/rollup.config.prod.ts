@@ -10,18 +10,17 @@ export default [
     output: [
       {
         format: 'cjs',
-        file: 'dist/cjs/index.cjs',
+        file: 'dist/cjs/index.js',
       },
       {
         format: 'esm',
-        file: 'dist/esm/index.mjs',
+        file: 'dist/esm/index.js',
       },
     ],
     plugins: [
       nodeResolve({
-        resolveOnly: (module) => {
-          return pkg?.dependencies?.[module] == null && pkg?.devDependencies?.[module] == null;
-        },
+        resolveOnly: (module) =>
+          pkg?.dependencies?.[module] == null && pkg?.devDependencies?.[module] == null,
       }),
       ts({ tsconfig: 'tsconfig.prod.json' }),
     ],

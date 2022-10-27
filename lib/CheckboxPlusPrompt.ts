@@ -152,10 +152,11 @@ export default class CheckboxPlusPrompt<TAnswers extends Answers = Answers> exte
     let sourcePromise: ReturnType<CheckboxPlusPromptOptions['source']> | undefined;
 
     // Remove spaces
-    const readlined = this.rl.line.trim();
+    // @ts-ignore
+    this.rl.line = this.rl.line.trim();
 
     // Same last search query that already loaded
-    if (readlined === this.lastQuery) {
+    if (this.rl.line === this.lastQuery) {
       return Promise.resolve(undefined);
     }
 
