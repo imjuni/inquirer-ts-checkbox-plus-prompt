@@ -1,11 +1,23 @@
 {
-  "name": "inquirer-checkbox-plus-prompt",
-  "version": "1.0.1",
+  "name": "inquirer-ts-checkbox-plus-prompt",
+  "version": "1.0.0",
   "description": "Checkbox with autocomplete and other additions for Inquirer",
-  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/faressoft/inquirer-checkbox-plus-prompt.git"
+    "url": "https://github.com/imjuni/inquirer-ts-checkbox-plus-prompt.git"
+  },
+  "scripts": {
+    "dev": "ts-node ./examples/example.ts",
+    "debug": "cross-env TS_NODE_PROJECT=tsconfig.json node -r ts-node/register --nolazy --inspect-brk=9229 ./examples/example.ts ",
+    "ctix:single": "just --config ./.configs/just.config.ts ctix:single",
+    "ctix:remove": "just --config ./.configs/just.config.ts ctix:remove",
+    "clean": "just --config ./.configs/just.config.ts clean",
+    "build": "just --config ./.configs/just.config.ts build",
+    "rollup:prod": "just --config ./.configs/just.config.ts rollup:prod",
+    "prepublishOnly": "node prepublish.js",
+    "pub": "just --config ./.configs/just.config.ts pub",
+    "unpub": "just --config ./.configs/just.config.ts unpub",
+    "pub:prod": "just --config ./.configs/just.config.ts pub:prod"
   },
   "keywords": [
     "inquirer",
@@ -25,15 +37,63 @@
     "tty",
     "menu"
   ],
-  "author": "Mohammad Fares <faressoft.com@gmail.com>",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
+  "typings": "./dist/esm/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": [
+      {
+        "import": "./dist/esm/index.mjs",
+        "require": "./dist/cjs/index.cjs"
+      },
+      "./dist/cjs/index.js"
+    ]
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "ByungJoon Lee <imjuni@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "cli-cursor": "^2.1.0",
-    "figures": "^2.0.0",
-    "inquirer": "^5.1.0",
-    "lodash": "^4.17.5"
+    "chalk": "^4.1.2",
+    "cli-cursor": "^3.1.0",
+    "fast-safe-stringify": "^2.1.1",
+    "figures": "^3.2.0",
+    "inquirer": "^8.2.5",
+    "lodash": "^4.17.21",
+    "rxjs": "^7.5.7"
   },
   "devDependencies": {
-    "fuzzy": "^0.1.3"
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^9.0.2",
+    "@tsconfig/node14": "^1.0.3",
+    "@types/inquirer": "^9.0.2",
+    "@types/jest": "^29.2.0",
+    "@types/node": "^18.11.6",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "cross-env": "^7.0.3",
+    "ctix": "^1.5.2",
+    "deps-diff": "^1.0.0",
+    "eslint": "^8.26.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jsdoc": "^39.3.25",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prettier": "^4.2.1",
+    "execa": "^5.1.1",
+    "fuzzy": "^0.1.3",
+    "just-task": "^1.6.1",
+    "prettier-eslint": "^15.0.1",
+    "prettier-plugin-organize-imports": "^3.1.1",
+    "read-pkg": "^5.2.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.79.1",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-ts": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.0"
   }
 }
