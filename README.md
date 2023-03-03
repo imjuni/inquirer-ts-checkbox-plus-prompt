@@ -10,7 +10,7 @@ A plugin for [Inquirer](https://github.com/SBoudrias/Inquirer.js), similar to th
 ## Installation
 
 ```bash
-npm install -g inquirer-ts-checkbox-plus-prompt
+npm install inquirer-ts-checkbox-plus-prompt
 ```
 
 ## Usage
