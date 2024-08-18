@@ -1,6 +1,6 @@
 {
   "name": "inquirer-ts-checkbox-plus-prompt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Checkbox with autocomplete and other additions for Inquirer",
   "repository": {
     "type": "git",
@@ -45,8 +45,16 @@
     "./package.json": "./package.json",
     ".": [
       {
-        "import": "./dist/esm/index.js",
-        "require": "./dist/cjs/index.js"
+        "import": { 
+          "import": "./dist/esm/index.js",
+          "default": "./dist/esm/index.js",
+          "types": "./dist/esm/index.d.ts"
+        },
+        "require": { 
+          "require": "./dist/cjs/index.js",
+          "default": "./dist/cjs/index.js",
+          "types": "./dist/cjs/index.d.js"
+        }
       }
     ]
   },
