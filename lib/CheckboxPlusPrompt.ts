@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable import/prefer-default-export, no-param-reassign */
 import chalk from 'chalk';
 import cliCursor from 'cli-cursor';
 import figures from 'figures';
@@ -10,9 +10,9 @@ import observe from 'inquirer/lib/utils/events';
 import Paginator from 'inquirer/lib/utils/paginator';
 import { Interface as ReadLineInterface } from 'readline';
 import { map, takeUntil } from 'rxjs/operators';
-import CheckboxPlusPromptOptions from './CheckboxPlusPromptOptions';
+import type { CheckboxPlusPromptOptions } from './CheckboxPlusPromptOptions';
 
-export default class CheckboxPlusPrompt<TAnswers extends Answers = Answers> extends Base<
+export class CheckboxPlusPrompt<TAnswers extends Answers = Answers> extends Base<
   CheckboxPlusPromptOptions & { states: any }
 > {
   private pointer: number = 0;

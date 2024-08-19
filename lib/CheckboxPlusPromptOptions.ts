@@ -1,6 +1,6 @@
 import { Answers, Question } from 'inquirer';
 
-type CheckboxPlusPromptOptions<T extends Answers = any> = Question<T> & {
+export type CheckboxPlusPromptOptions<T extends Answers = any> = Question<T> & {
   highlight?: boolean;
   searchable?: boolean;
   defaults?: string[];
@@ -13,5 +13,3 @@ declare module 'inquirer' {
     checkboxPlus: Omit<CheckboxPlusPromptOptions<T>, 'type'> & { type: 'checkbox-plus' };
   }
 }
-
-export default CheckboxPlusPromptOptions;
